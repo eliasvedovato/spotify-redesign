@@ -9,7 +9,7 @@ import SpotifyProvider from 'next-auth/providers/spotify'
 async function refreshAccessToken(token) {
 	try {
 		const url =
-			'https://accounts.spotify.com/api/token' +
+			'https://accounts.spotify.com/api/token?' +
 			new URLSearchParams({
 				client_id: process.env.SPOTIFY_CLIENT_ID,
 				client_secret: process.env.SPOTIFY_CLIENT_SECRET,
