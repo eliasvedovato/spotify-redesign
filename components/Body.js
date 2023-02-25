@@ -21,7 +21,10 @@ function Body({ spotifyApi, chooseTrack }) {
 		if (!search) return setSearchResults([])
 		if (!accessToken) return
 
+		let cancel = false;
+
 		spotifyApi.searchTracks(search).then(res => {
+			if (cancel) return;
 			setSearchResults(
 				res.body.tracks.items.map(track => {
 					return {
@@ -35,6 +38,8 @@ function Body({ spotifyApi, chooseTrack }) {
 				})
 			)
 		})
+
+		return () => (cancel = true);
 	}, [search, accessToken])
 
 	// New releases....
