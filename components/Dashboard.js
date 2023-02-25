@@ -1,7 +1,6 @@
 import Body from './Body'
 import Right from './Right'
 import Sidebar from './Sidebar'
-import Player from './Player'
 import SpotifyWebApi from 'spotify-web-api-node'
 import { useRecoilState } from 'recoil'
 import { playingTrackState } from 'atoms/playerAtoms'
@@ -36,14 +35,14 @@ function Dashboard() {
 			<Body spotifyApi={spotifyApi} chooseTrack={chooseTrack} />
 			<Right spotifyApi={spotifyApi} chooseTrack={chooseTrack} />
 
-			{showPlayer && (
+			{/* {showPlayer && (
 				<div className='fixed bottom-0 left-0 right-0 z-1 mt-10'>
 					<Player
 						accessToken={accessToken}
 						trackUri={playingTrack.uri}
 					/>
 				</div>
-			)}
+			)} */}
 		</main>
 	)
 }
